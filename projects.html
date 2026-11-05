@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ka" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>პროექტები - ლევან მელქონიანი</title>
+  <meta name="description" content="ლევან მელქონიანის პრაქტიკული ვებ-პროექტები: ონლაინ მაღაზია, IT ბლოგი და ტურისტული პლატფორმა.">
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white relative overflow-x-hidden">
+
+  <!-- დეკორატიული ფონის ბზინვარება -->
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[450px] overflow-hidden pointer-events-none -z-10 opacity-40">
+    <div class="absolute -top-32 left-1/4 w-96 h-96 bg-purple-500/25 rounded-full blur-3xl"></div>
+    <div class="absolute -top-20 right-1/4 w-96 h-96 bg-indigo-500/30 rounded-full blur-3xl"></div>
+  </div>
+
+  <!-- ზედა ნაწილი (ჰედერი) -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-slate-950/80 border-b border-slate-800/80 transition-all">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 sm:py-4 flex items-center justify-between gap-4">
+      <div class="text-left">
+        <h1 class="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-white via-indigo-200 to-indigo-400 bg-clip-text text-transparent">
+          <a href="davalebaN2.html" class="hover:opacity-90 transition-opacity">ლევან მელქონიანი</a>
+        </h1>
+        <p class="text-xs sm:text-sm text-indigo-300/80 font-medium mt-0.5">
+          <em>დამწყები Front-End ვებ დეველოპერი &amp; UI/UX ენთუზიასტი</em>
+        </p>
+      </div>
+
+      <!-- ბურგერ მენიუს ღილაკი მობილურისთვის და ტაბლეტებისთვის -->
+      <button id="mobile-menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav-menu" aria-label="ნავიგაციის მენიუს გახსნა" class="lg:hidden inline-flex items-center justify-center p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors">
+        <svg id="burger-icon" class="w-6 h-6 block" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      
+      <!-- დესკტოპ ნავიგაცია -->
+      <nav aria-label="საიტის მთავარი ნავიგაცია" class="hidden lg:block flex-shrink-0">
+        <ul class="flex items-center gap-1 xl:gap-1.5 p-1.5 bg-slate-900/90 rounded-2xl border border-slate-800 shadow-inner">
+          <li>
+            <a href="davalebaN2.html" class="inline-flex items-center px-3 py-1.5 rounded-xl text-xs xl:text-sm font-medium whitespace-nowrap text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">მთავარი</a>
+          </li>
+          <li>
+            <a href="about.html" class="inline-flex items-center px-3 py-1.5 rounded-xl text-xs xl:text-sm font-medium whitespace-nowrap text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">ჩემ შესახებ</a>
+          </li>
+          <li>
+            <strong>
+              <a href="projects.html" class="inline-flex items-center px-3 py-1.5 rounded-xl text-xs xl:text-sm font-semibold whitespace-nowrap bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 transition-all">პროექტები</a>
+            </strong>
+          </li>
+          <li>
+            <a href="skills.html" class="inline-flex items-center px-3 py-1.5 rounded-xl text-xs xl:text-sm font-medium whitespace-nowrap text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">უნარები</a>
+          </li>
+          <li>
+            <a href="portfolio.html" class="inline-flex items-center px-3 py-1.5 rounded-xl text-xs xl:text-sm font-medium whitespace-nowrap text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">პორტფოლიო</a>
+          </li>
+          <li>
+            <a href="contact.html" class="inline-flex items-center px-3 py-1.5 rounded-xl text-xs xl:text-sm font-medium whitespace-nowrap text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">კონტაქტი</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- მობილური ჩამოსაშლელი მენიუ -->
+    <div id="mobile-nav-menu" class="hidden lg:hidden px-4 pb-4 pt-2 border-t border-slate-800/80 bg-slate-950/95 transition-all">
+      <nav aria-label="საიტის მობილური ნავიგაცია">
+        <ul class="flex flex-col gap-1.5 p-2 bg-slate-900/90 rounded-2xl border border-slate-800">
+          <li>
+            <a href="davalebaN2.html" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">
+              <span>მთავარი</span>
+              <span class="text-slate-500">&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a href="about.html" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">
+              <span>ჩემ შესახებ</span>
+              <span class="text-slate-500">&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <strong>
+              <a href="projects.html" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-semibold bg-indigo-600 text-white shadow-md transition-all">
+                <span>პროექტები</span>
+                <span>&rarr;</span>
+              </a>
+            </strong>
+          </li>
+          <li>
+            <a href="skills.html" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">
+              <span>უნარები</span>
+              <span class="text-slate-500">&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a href="portfolio.html" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">
+              <span>პორტფოლიო</span>
+              <span class="text-slate-500">&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a href="contact.html" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">
+              <span>კონტაქტი</span>
+              <span class="text-slate-500">&rarr;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <hr class="hidden border-slate-800">
+
+  <!-- ძირითადი შინაარსი -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 flex-1 w-full space-y-12 sm:space-y-16">
+
+    <!-- შესავალი სექცია -->
+    <section class="bg-gradient-to-b from-slate-900/90 to-slate-900/40 p-6 sm:p-10 rounded-3xl border border-slate-800/80 shadow-2xl backdrop-blur-md space-y-3 text-center md:text-left">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+        <span>🚀 Portfolio Showcases</span>
+      </div>
+      <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">ჩემი პროექტები და ნამუშევრები</h2>
+      <p class="text-base sm:text-lg text-slate-300 max-w-3xl leading-relaxed">
+        ამ გვერდზე თავმოყრილია ჩემი პრაქტიკული პროექტები. თითოეული პროექტი შექმნილია სემანტიკური მარკაპის, ხელმისაწვდომობისა და სუფთა კოდის წესების სრული დაცვით.
+      </p>
+    </section>
+
+    <hr class="hidden border-slate-800">
+
+    <!-- პროექტების სია -->
+    <div class="space-y-12">
+
+      <!-- პროექტი 1 -->
+      <article id="project-1" class="bg-slate-900/60 rounded-3xl border border-slate-800/80 hover:border-slate-700 transition-all shadow-xl overflow-hidden p-6 sm:p-8 space-y-6">
+        <header class="border-b border-slate-800 pb-4">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
+            <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight">1. BookStore — ონლაინ წიგნების მაღაზია</h3>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">დასრულებული</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-400">
+            თარიღი: <time datetime="2025-11-10" class="text-slate-300 font-medium">2025 წლის 10 ნოემბერი</time> | 
+            კატეგორია: <em class="text-indigo-300 not-italic font-medium">E-Commerce / ელექტრონული კომერცია</em>
+          </p>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <figure class="lg:col-span-5 bg-slate-950/80 p-4 rounded-2xl border border-slate-800 text-center group">
+            <img src="images/project1.svg" alt="BookStore წიგნების მაღაზიის ინტერფეისი" width="480" height="260" class="w-full h-auto rounded-xl object-cover shadow-md group-hover:scale-[1.02] transition-transform">
+            <figcaption class="mt-3 text-xs text-slate-400">სურათი 1: BookStore ონლაინ მაღაზიის კატალოგი და შეკვეთის ინტერფეისი</figcaption>
+          </figure>
+
+          <section class="lg:col-span-7 space-y-4">
+            <h4 class="text-lg font-bold text-white">პროექტის მიმოხილვა:</h4>
+            <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+              წიგნების ონლაინ პლატფორმა. მომხმარებელს შეუძლია დაათვალიეროს კატალოგი ჟანრების მიხედვით, გაეცნოს ფასებს და შეავსოს შეკვეთის ფორმა.
+            </p>
+
+            <h4 class="text-sm font-bold text-slate-200 uppercase tracking-wider pt-2">გამოყენებული ტექნოლოგიები:</h4>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-slate-300 list-none p-0">
+              <li class="flex items-center gap-2 bg-slate-950/40 p-2.5 rounded-xl border border-slate-800/60">
+                <span class="text-indigo-400">✔</span>
+                <span><code class="text-indigo-300 bg-indigo-950/50 px-1 py-0.5 rounded">&lt;article&gt;</code> და <code class="text-indigo-300 bg-indigo-950/50 px-1 py-0.5 rounded">&lt;section&gt;</code> სტრუქტურა</span>
+              </li>
+              <li class="flex items-center gap-2 bg-slate-950/40 p-2.5 rounded-xl border border-slate-800/60">
+                <span class="text-indigo-400">✔</span>
+                <span><code class="text-purple-300 bg-purple-950/50 px-1 py-0.5 rounded">&lt;figure&gt;</code> მედია ილუსტრაციები</span>
+              </li>
+              <li class="flex items-center gap-2 bg-slate-950/40 p-2.5 rounded-xl border border-slate-800/60">
+                <span class="text-indigo-400">✔</span>
+                <span><code class="text-cyan-300 bg-cyan-950/50 px-1 py-0.5 rounded">&lt;form&gt;</code> &amp; <code class="text-cyan-300 bg-cyan-950/50 px-1 py-0.5 rounded">&lt;fieldset&gt;</code></span>
+              </li>
+              <li class="flex items-center gap-2 bg-slate-950/40 p-2.5 rounded-xl border border-slate-800/60">
+                <span class="text-indigo-400">✔</span>
+                <span><abbr title="HyperText Markup Language 5" class="text-amber-300 font-medium">HTML5</abbr> ვალიდაციის ატრიბუტები</span>
+              </li>
+            </ul>
+
+            <details class="group mt-4 bg-slate-950/60 p-4 rounded-2xl border border-slate-800 cursor-pointer">
+              <summary class="text-sm font-bold text-indigo-400 flex items-center justify-between list-none focus:outline-none">
+                <span>დააჭირეთ აქ დამატებითი დეტალების სანახავად</span>
+                <span class="transform group-open:rotate-180 transition-transform text-xs">▼</span>
+              </summary>
+              <p class="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed pt-2 border-t border-slate-800/60">
+                ამ პროექტზე მუშაობისას განსაკუთრებული აქცენტი გაკეთდა პროდუქტების სწორ სემანტიკურ დაჯგუფებაზე. თითოეულ წიგნს გააჩნია საკუთარი სათაური, ფასის ინდიკატორი და კალათაში დამატების ღილაკი.
+              </p>
+            </details>
+          </section>
+        </div>
+      </article>
+
+      <hr class="hidden border-slate-800">
+
+      <!-- პროექტი 2 -->
+      <article id="project-2" class="bg-slate-900/60 rounded-3xl border border-slate-800/80 hover:border-slate-700 transition-all shadow-xl overflow-hidden p-6 sm:p-8 space-y-6">
+        <header class="border-b border-slate-800 pb-4">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
+            <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight">2. TechPulse — IT და ტექნოლოგიური ბლოგი</h3>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">დასრულებული</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-400">
+            თარიღი: <time datetime="2026-01-20" class="text-slate-300 font-medium">2026 წლის 20 იანვარი</time> | 
+            კატეგორია: <em class="text-purple-300 not-italic font-medium">საინფორმაციო ბლოგი / მედია</em>
+          </p>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <figure class="lg:col-span-5 bg-slate-950/80 p-4 rounded-2xl border border-slate-800 text-center group">
+            <img src="images/project2.svg" alt="TechPulse ბლოგის განლაგება" width="480" height="260" class="w-full h-auto rounded-xl object-cover shadow-md group-hover:scale-[1.02] transition-transform">
+            <figcaption class="mt-3 text-xs text-slate-400">სურათი 2: TechPulse ბლოგის სტატია და თემატური კატეგორიები</figcaption>
+          </figure>
+
+          <section class="lg:col-span-7 space-y-4">
+            <h4 class="text-lg font-bold text-white">პროექტის მიმოხილვა:</h4>
+            <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+              ტექნოლოგიური სიახლეებისა და საგანმანათლებლო სტატიების პორტალი. მოიცავს რუბრიკებს ხელოვნური ინტელექტის, ვებ-სტანდარტებისა და კიბერუსაფრთხოების შესახებ.
+            </p>
+
+            <h4 class="text-sm font-bold text-slate-200 uppercase tracking-wider pt-2">სემანტიკური მახასიათებლები:</h4>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-slate-300 list-none p-0">
+              <li class="flex items-center gap-2 bg-slate-950/40 p-2.5 rounded-xl border border-slate-800/60">
+                <span class="text-purple-400">✔</span>
+                <span><code class="text-purple-300 bg-purple-950/50 px-1 py-0.5 rounded">&lt;article&gt;</code> დამოუკიდებელი პოსტები</span>
+              </li>
+              <li class="flex items-center gap-2 bg-slate-950/40 p-2.5 rounded-xl border border-slate-800/60">
+                <span class="text-purple-400">✔</span>
+                <span><code class="text-indigo-300 bg-indigo-950/50 px-1 py-0.5 rounded">&lt;aside&gt;</code> კატეგორიების გვერდითა პანელი</span>
+              </li>
+              <li class="flex items-center gap-2 bg-slate-950/40 p-2.5 rounded-xl border border-slate-800/60">
+                <span class="text-purple-400">✔</span>
+                <span><code class="text-cyan-300 bg-cyan-950/50 px-1 py-0.5 rounded">&lt;time&gt;</code> გამოქვეყნების ზუსტი დრო</span>
+              </li>
+              <li class="flex items-center gap-2 bg-slate-950/40 p-2.5 rounded-xl border border-slate-800/60">
+                <span class="text-purple-400">✔</span>
+                <span><mark class="bg-amber-400/20 text-amber-300 px-1.5 py-0.5 rounded text-xs">&lt;mark&gt;</mark> საკვანძო ტერმინები</span>
+              </li>
+            </ul>
+
+            <details class="group mt-4 bg-slate-950/60 p-4 rounded-2xl border border-slate-800 cursor-pointer">
+              <summary class="text-sm font-bold text-purple-400 flex items-center justify-between list-none focus:outline-none">
+                <span>დააჭირეთ აქ დამატებითი დეტალების სანახავად</span>
+                <span class="transform group-open:rotate-180 transition-transform text-xs">▼</span>
+              </summary>
+              <p class="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed pt-2 border-t border-slate-800/60">
+                სტატიების სტრუქტურა ოპტიმიზებულია საძიებო სისტემებისთვის (SEO). სათაურების იერარქია (H1-დან H4-მდე) აგებულია უმკაცრესი წესების დაცვით.
+              </p>
+            </details>
+          </section>
+        </div>
+      </article>
+
+      <hr class="hidden border-slate-800">
+
+      <!-- პროექტი 3 -->
+      <article id="project-3" class="bg-slate-900/60 rounded-3xl border border-slate-800/80 hover:border-slate-700 transition-all shadow-xl overflow-hidden p-6 sm:p-8 space-y-6">
+        <header class="border-b border-slate-800 pb-4">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
+            <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight">3. TravelGeorgia — ტურისტული გზამკვლევი და სააგენტო</h3>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">დასრულებული</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-400">
+            თარიღი: <time datetime="2026-03-05" class="text-slate-300 font-medium">2026 წლის 5 მარტი</time> | 
+            კატეგორია: <em class="text-cyan-300 not-italic font-medium">ტურიზმი &amp; სერვისები</em>
+          </p>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <figure class="lg:col-span-5 bg-slate-950/80 p-4 rounded-2xl border border-slate-800 text-center group">
+            <img src="images/project3.svg" alt="TravelGeorgia ტურების შეთავაზებები" width="480" height="260" class="w-full h-auto rounded-xl object-cover shadow-md group-hover:scale-[1.02] transition-transform">
+            <figcaption class="mt-3 text-xs text-slate-400">სურათი 3: ტურისტული მიმართულებები და მარშრუტების აღწერა</figcaption>
+          </figure>
+
+          <section class="lg:col-span-7 space-y-4">
+            <h4 class="text-lg font-bold text-white">პროექტის მიმოხილვა:</h4>
+            <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+              საქართველოს სხვადასხვა რეგიონში ტურების დასაჯავშნი პლატფორმა დეტალური განრიგით, ხანგრძლივობითა და ფასებით.
+            </p>
+
+            <h4 class="text-sm font-bold text-slate-200 uppercase tracking-wider pt-2">გამოყენებული კომპონენტები:</h4>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-slate-300 list-none p-0">
+              <li class="flex items-center gap-2 bg-slate-950/40 p-2.5 rounded-xl border border-slate-800/60">
+                <span class="text-cyan-400">✔</span>
+                <span>ტურების შედარების სემანტიკური ცხრილი</span>
+              </li>
+              <li class="flex items-center gap-2 bg-slate-950/40 p-2.5 rounded-xl border border-slate-800/60">
+                <span class="text-cyan-400">✔</span>
+                <span>მარშრუტების დეტალური აღწერა</span>
+              </li>
+              <li class="flex items-center gap-2 bg-slate-950/40 p-2.5 rounded-xl border border-slate-800/60">
+                <span class="text-cyan-400">✔</span>
+                <span>ჯავშნისა და უკუკავშირის ფორმა</span>
+              </li>
+            </ul>
+
+            <details class="group mt-4 bg-slate-950/60 p-4 rounded-2xl border border-slate-800 cursor-pointer">
+              <summary class="text-sm font-bold text-cyan-400 flex items-center justify-between list-none focus:outline-none">
+                <span>დააჭირეთ აქ დამატებითი დეტალების სანახავად</span>
+                <span class="transform group-open:rotate-180 transition-transform text-xs">▼</span>
+              </summary>
+              <p class="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed pt-2 border-t border-slate-800/60">
+                პროექტი უზრუნველყოფს სრულფასოვან ინფორმაციას საქართველოს ღირსშესანიშნაობების შესახებ და იყენებს სპეციალურ ფორმატებს თარიღებისა და ფასების აღსანიშნავად.
+              </p>
+            </details>
+          </section>
+        </div>
+      </article>
+
+    </div>
+
+    <hr class="hidden border-slate-800">
+
+    <!-- შეფასებები (Aside) -->
+    <aside class="space-y-4">
+      <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight flex items-center gap-2">
+        <span class="w-2.5 h-6 rounded-full bg-amber-400 inline-block"></span>
+        კლიენტებისა და მენტორების გამოხმაურება
+      </h3>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <blockquote class="p-6 rounded-2xl bg-slate-900/70 border border-slate-800 shadow-xl space-y-3">
+          <p class="text-sm sm:text-base text-slate-300 italic leading-relaxed">
+            „ლევანის მიერ მომზადებული მარკაპი გამოირჩევა საოცარი სისუფთავით. სემანტიკური თეგების ასეთი მიზნობრივი გამოყენება იშვიათია დამწყებ დეველოპერებში.“
+          </p>
+          <cite class="not-italic text-xs font-semibold text-indigo-400 block">— ლევან კაპანაძე, Front-End არქიტექტორი</cite>
+        </blockquote>
+
+        <blockquote class="p-6 rounded-2xl bg-slate-900/70 border border-slate-800 shadow-xl space-y-3">
+          <p class="text-sm sm:text-base text-slate-300 italic leading-relaxed">
+            „პროექტების სტრუქტურა იდეალურადაა დაგეგმილი. გვერდებს შორის ნავიგაცია მარტივი და კომფორტულია.“
+          </p>
+          <cite class="not-italic text-xs font-semibold text-purple-400 block">— ნინო გელაშვილი, UI დიზაინერი</cite>
+        </blockquote>
+      </div>
+    </aside>
+
+  </main>
+
+  <hr class="hidden border-slate-800">
+
+  <!-- ფუტერი -->
+  <footer class="mt-auto border-t border-slate-800/80 bg-slate-950/90 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start justify-between">
+        <section class="space-y-3">
+          <h3 class="text-base font-bold text-white uppercase tracking-wider">საკონტაქტო ინფო</h3>
+          <address class="not-italic space-y-1.5 text-sm text-slate-400">
+            <p class="flex items-center gap-2">
+              <span class="text-indigo-400 font-semibold">ელ-ფოსტა:</span> 
+              <a href="mailto:levan.melkoniani@example.com" class="hover:text-white transition-colors underline decoration-slate-700 underline-offset-4">levan.melkoniani@example.com</a>
+            </p>
+            <p class="flex items-center gap-2">
+              <span class="text-indigo-400 font-semibold">ტელეფონი:</span> 
+              <a href="tel:+995555123456" class="hover:text-white transition-colors">+995 555 12 34 56</a>
+            </p>
+            <p class="flex items-center gap-2">
+              <span class="text-indigo-400 font-semibold">მისამართი:</span> 
+              <span>თბილისი, საქართველო</span>
+            </p>
+          </address>
+        </section>
+
+        <nav aria-label="ფუტერის ნავიგაცია" class="md:text-right space-y-3">
+          <h3 class="text-base font-bold text-white uppercase tracking-wider">სწრაფი ბმულები</h3>
+          <p class="text-sm text-slate-400 flex flex-wrap md:justify-end gap-x-3 gap-y-1">
+            <a href="davalebaN2.html" class="hover:text-indigo-400 transition-colors">მთავარი</a>
+            <span class="text-slate-700">|</span>
+            <a href="about.html" class="hover:text-indigo-400 transition-colors">ჩემ შესახებ</a>
+            <span class="text-slate-700">|</span>
+            <a href="projects.html" class="hover:text-indigo-400 transition-colors">პროექტები</a>
+            <span class="text-slate-700">|</span>
+            <a href="skills.html" class="hover:text-indigo-400 transition-colors">უნარები და გამოცდილება</a>
+            <span class="text-slate-700">|</span>
+            <a href="portfolio.html" class="hover:text-indigo-400 transition-colors">პორტფოლიო</a>
+            <span class="text-slate-700">|</span>
+            <a href="contact.html" class="hover:text-indigo-400 transition-colors">კონტაქტი</a>
+          </p>
+        </nav>
+      </div>
+
+      <div class="border-t border-slate-900 pt-6 text-center">
+        <p class="text-xs text-slate-500">
+          <small>&copy; 2026 ლევან მელქონიანი. ყველა უფლება დაცულია. საიტი შექმნილია სუფთა სემანტიკური HTML-ით და Tailwind CSS-ით.</small>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // მობილური ბურგერ მენიუს ლოგიკა
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-nav-menu');
+    const burgerIcon = document.getElementById('burger-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', !isExpanded);
+        mobileMenu.classList.toggle('hidden');
+        burgerIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+      });
+    }
+  </script>
+</body>
+</html>
