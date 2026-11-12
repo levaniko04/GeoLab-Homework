@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" width="320" height="220">
+  <defs>
+    <linearGradient id="certBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF7"/>
+      <stop offset="100%" stop-color="#FEF3C7"/>
+    </linearGradient>
+  </defs>
+  <!-- Frame -->
+  <rect x="5" y="5" width="310" height="210" rx="8" fill="url(#certBg)" stroke="#D97706" stroke-width="4"/>
+  <rect x="15" y="15" width="290" height="190" rx="4" fill="none" stroke="#F59E0B" stroke-width="1.5" stroke-dasharray="4,2"/>
+  
+  <!-- Certificate Header -->
+  <text x="160" y="45" font-family="serif" font-size="14" font-weight="bold" fill="#78350F" text-anchor="middle">CERTIFICATE OF ACHIEVEMENT</text>
+  <line x1="80" y1="52" x2="240" y2="52" stroke="#D97706" stroke-width="1"/>
+  
+  <text x="160" y="70" font-family="sans-serif" font-size="9" fill="#92400E" text-anchor="middle">ეს სერტიფიკატი გადაეცემა</text>
+  <text x="160" y="95" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1E293B" text-anchor="middle">ლევან მელქონიანს</text>
+  <line x1="90" y1="103" x2="230" y2="103" stroke="#94A3B8" stroke-width="1"/>
+  
+  <text x="160" y="125" font-family="sans-serif" font-size="9" fill="#475569" text-anchor="middle">HTML5 &amp; Modern Semantic Web Development</text>
+  <text x="160" y="140" font-family="sans-serif" font-size="8" fill="#64748B" text-anchor="middle">კურსის წარმატებით დასრულებისთვის</text>
+  
+  <!-- Stamp / Seal -->
+  <circle cx="160" cy="175" r="18" fill="#F59E0B" stroke="#B45309" stroke-width="2"/>
+  <text x="160" y="179" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#FFFFFF">★</text>
+  
+  <text x="50" y="185" font-family="sans-serif" font-size="7" fill="#64748B">თარიღი: 2025</text>
+  <text x="270" y="185" font-family="sans-serif" font-size="7" fill="#64748B" text-anchor="end">W3C Standards</text>
+</svg>

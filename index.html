@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ka" class="scroll-smooth dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ლევან მელქონიანი - Full-Stack & UI/UX Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+              code: ['"Fira Code"', 'monospace'],
+            },
+            colors: {
+              ide: {
+                bg: '#0d1117',
+                panel: '#161b22',
+                border: '#30363d',
+                active: '#21262d',
+                cyan: '#58a6ff',
+                green: '#7ee787',
+                purple: '#bc8cff',
+                orange: '#ffa657',
+                yellow: '#e3b341',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Smooth transitions */
+      * {
+        transition-property: background-color, border-color, color, fill, stroke;
+        transition-duration: 200ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      /* Custom glowing scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(100, 116, 139, 0.4);
+        border-radius: 4px;
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background: rgba(56, 189, 248, 0.3);
+      }
+      .dark ::-webkit-scrollbar-thumb:hover {
+        background: rgba(56, 189, 248, 0.6);
+      }
+    </style>
+  </head>
+  <body class="bg-[#f8fafc] dark:bg-[#070b14] text-slate-900 dark:text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-cyan-500 selection:text-black relative overflow-x-hidden">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

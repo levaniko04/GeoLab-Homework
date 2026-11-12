@@ -1,0 +1,71 @@
+import React, { useState } from 'react';
+import type { Project } from '../types';
+import { ProjectCard } from './ProjectCard';
+
+interface ProjectsSectionProps {
+  projects: Project[];
+}
+
+export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
+  const [selectedFilter, setSelectedFilter] = useState<string>('all');
+
+  const categories = [
+    { key: 'all', label: 'ყველა პროექტი' },
+    { key: 'Web Development', label: 'Web Development' },
+    { key: 'UI/UX Design', label: 'UI/UX Design' },
+    { key: 'Full-Stack Integration', label: 'Full-Stack' },
+    { key: 'Backend Development', label: 'Backend' },
+  ];
+
+  const filteredProjects = selectedFilter === 'all'
+    ? projects
+    : projects.filter(p => p.category === selectedFilter);
+
+  return (
+    <section id="projects" className="py-16 sm:py-24 relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* სექციის სათაური */}
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#161b22] border border-[#30363d] text-cyan-400 text-xs font-code mb-3 shadow-inner">
+            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+            <span>&lt;portfolio-showcase /&gt;</span>
+          </div>
+          <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
+            რჩეული ნამუშევრები
+          </h2>
+          <p className="text-slate-400 text-sm mt-2 font-sans">
+            თანამედროვე ვებ-აპლიკაციები, კომპონენტების ბიბლიოთეკები და ინტეგრაციები.
+          </p>
+        </div>
+
+        {/* ინტერაქტიული კატეგორიების ფილტრი */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+          {categories.map((cat) => {
+            const isActive = selectedFilter === cat.key;
+            return (
+              <button
+                key={cat.key}
+                onClick={() => setSelectedFilter(cat.key)}
+                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-code font-semibold transition-all duration-200 border ${
+                  isActive
+                    ? 'bg-cyan-500 text-slate-950 border-cyan-400 shadow-lg shadow-cyan-500/25 scale-105'
+                    : 'bg-[#161b22]/80 hover:bg-[#21262d] text-slate-400 hover:text-white border-[#30363d]'
+                }`}
+              >
+                {cat.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* განმეორებადი ქარდები ანიმაციით */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+          {filteredProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
